@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>MindJet Spinner</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+		<!--[if lt IE 9]>
+ 			 <script type="text/javascript" src="./js/excanvas/excanvas.js"></script>
+		<![endif]-->
+
+		<script type="text/javascript" src="./js/spinners/spinners.min.js"></script>
+		<script type="text/javascript" src="./js/Spinner.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/gui.css" />
+
+	</head>
+	<body>
+	
+		<div id='spinner'>
+		<canvas width="148" height="125" id="canvas1">
+			Browser does not support canvas.
+		</canvas>
+	</div>
+	    
+	</body>
+	<script>
+	//draw logo
+	var canvas = document.getElementById('canvas1');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+        context.drawImage(imageObj, 0, 0);
+      };
+      imageObj.src = 'MindJetLogo.png';
+</script>
+</html>
