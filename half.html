@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script src="http://www.html5canvastutorials.com/libraries/kinetic-v4.3.0-beta2.js"></script>
+    <script>
+      var stage = new Kinetic.Stage({
+        container: 'container',
+        width: 61,
+        height: 55
+      });
+      
+      var layer = new Kinetic.Layer();
+
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+      var logo = new Kinetic.Image({
+        x: stage.getWidth()/2,
+        image: imageObj,
+        width: stage.getWidth(),
+        height: stage.getHeight(),
+        offset: {
+          x: stage.getWidth()/2,
+          y: 0
+        },
+        });
+      
+      layer.add(logo);
+      
+      stage.add(layer);
+
+      var period = 1500;
+
+      var anim = new Kinetic.Animation(function(frame) {
+        var scale = Math.sin(frame.time * 2 * Math.PI / period) + 0.001;
+        // scale only y
+        logo.setScale(scale,1);
+      }, layer);
+      
+
+      anim.start();
+    };
+      imageObj.src='http://i47.tinypic.com/9ftxz9.png';
+    </script>
+  </body>
+</html>
